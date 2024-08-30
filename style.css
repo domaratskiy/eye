@@ -30,11 +30,16 @@ header {
 .headerWrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 15px;
 }
 
 header .logo {
   margin-right: 30px;
   font-size: 15px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .burger {
   display: none;
@@ -43,20 +48,18 @@ header .logo {
 }
 nav ul {
   list-style: none;
-  height: 100%;
 }
 
 nav ul li {
   display: inline-block;
-
-  height: 100%;
 }
 
 nav ul li a {
+  display: inline-block;
   color: #fff;
   text-decoration: none;
   font-size: 14px;
-  padding: 0 15px;
+  padding: 15px;
   letter-spacing: 2px;
 }
 nav ul li a:hover {
@@ -71,7 +74,7 @@ nav ul li a:active {
   font-size: 18px;
 }
 .heroDescription {
-  line-height: 50px;
+  line-height: 20px;
   margin-bottom: 30px;
   opacity: 0.5;
 }
@@ -81,9 +84,10 @@ nav ul li a:active {
 .hero {
   color: #fff;
   text-align: center;
-  padding: 100px 15px;
+  padding: 20px 15px 70px 15px;
   display: flex;
   justify-content: space-between;
+  min-height: 400px;
 }
 
 .heroContainer {
@@ -105,16 +109,41 @@ nav ul li a:active {
   margin-bottom: 10px;
 }
 .btn {
-  background-color: #f76c6c;
+  background: rgb(12, 255, 49);
+  background: linear-gradient(
+    172deg,
+    rgba(12, 255, 49, 1) 0%,
+    rgba(87, 70, 34, 1) 25%,
+    rgba(76, 201, 97, 1) 45%,
+    rgba(195, 97, 66, 1) 64%,
+    rgba(132, 214, 174, 0.8) 85%,
+    rgba(24, 8, 166, 0.8) 100%
+  );
+  background-size: 800% 400%;
+  animation: gradientAnimation 10s ease infinite;
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
   padding: 10px 15px;
   color: #fff;
   border-radius: 5px;
+  font-size: 15px;
+  text-shadow: 1px 1px 1px #000;
 }
 .btn:hover {
   background-color: #e65c5c;
+  transform: scale(1.03);
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Стили для преимуществ (benefits) */
@@ -185,20 +214,20 @@ nav ul li a:active {
 /* Стили для рекомендованных решений (recommendations) */
 section.myWorck {
   text-align: center;
-  padding: 50px 20px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 section.myWorck h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 20px;
+  margin-bottom: 15px;
   width: 100%;
 }
 
 section.myWorck .myWorckItems {
-  width: 200px;
+  width: 23%;
   height: 200px;
   margin: 10px;
   border: 1px solid #000;
@@ -280,6 +309,7 @@ footer {
 
 .footerCont {
   display: flex;
+  font-size: 16px;
 }
 /* services page style start */
 
@@ -352,6 +382,29 @@ footer {
   background-image: url(./img/price/time.svg);
 }
 /* services page style end */
+/* gallery pages style start */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+.gallery img {
+  max-width: 100%;
+  height: auto;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item {
+  width: calc(20% - 10px);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+/* gallery pages style end */
 @media screen and (max-width: 1000px) {
   .servicesItem::before,
   .servicesPrice:before,
@@ -370,7 +423,9 @@ footer {
     width: 100%;
     padding: 15px 10px 20px 15px;
   }
-
+  .gallery-item {
+    width: calc(25% - 10px);
+  }
   .priceList {
     width: 100%;
   }
@@ -405,8 +460,14 @@ footer {
   .priceList {
     width: 100%;
   }
+  .gallery-item {
+    width: calc(33.33% - 10px);
+  }
 }
 @media screen and (max-width: 480px) {
+  .gallery-item {
+    width: calc(50% - 10px);
+  }
   nav ul li {
     padding: 10px 20px;
     margin-bottom: 10px;
@@ -470,4 +531,75 @@ footer {
   .contact h2 {
     margin-bottom: 20px;
   }
+  .modal form {
+    padding: 45px !important;
+  }
+}
+
+/* модал */
+.addTask {
+  align-self: center;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: darkgoldenrod;
+  outline: none;
+  cursor: pointer;
+}
+.addTask:hover {
+  transform: scale(1.02);
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+.modalCont {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.modal form {
+  background-color: #e4dede;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  max-width: 600px;
+  min-height: 150px;
+  padding: 30px;
+  border: 1px solid #000;
+  position: relative;
+  border-radius: 15px;
+}
+.modal form label {
+  width: 100%;
+}
+.modal #number {
+  padding: 10px;
+  width: 80%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.modal button {
+  width: 20%;
+  background-color: darkgoldenrod;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.modal form span {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 50%;
 }

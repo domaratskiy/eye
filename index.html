@@ -14,22 +14,23 @@
         <p class="logo">
           <strong>Жадан Марина. Наращивания ресниц Спб.</strong>
         </p>
+
         <nav>
           <button class="burger">меню</button>
           <ul class="menu">
             <li>
               <a href="price.html" title="link to services page">Услуги</a>
             </li>
-            <li><a href="#portfolio">Портфолио</a></li>
-            <li><a href="#otzyvy">Отзывы</a></li>
-            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="gallery.html">Портфолио</a></li>
+            <li><a href="contact.html">Контакты</a></li>
           </ul>
         </nav>
+        <button class="addTask">Записаться</button>
       </div>
     </header>
 
     <div class="heroCont">
-      <div class="wrapper">
+      <div class="cont">
         <section class="hero">
           <p>
             <span class="textOrange">В каждой</span> есть прекрасное,<br />
@@ -57,7 +58,7 @@
     </div>
     <div class="cont">
       <section class="benefits">
-        <h2>Наши преимущества.</h2>
+        <h2 id="master">Наши преимущества.</h2>
         <div class="benefit">
           <h3>Долгая носка.</h3>
           <p>
@@ -142,6 +143,20 @@
         </div>
       </div>
     </footer>
+
+    <!-- модальное окно -->
+    <article class="modal">
+      <div class="modalCont">
+        <form action="#">
+          <span>X</span>
+          <label for="number"
+            >Введите номер телефона и мы вам передзвоним.</label
+          >
+          <input type="number" name="number" id="number" required />
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+    </article>
     <script src="./sc.js"></script>
   </body>
 </html>
