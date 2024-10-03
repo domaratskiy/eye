@@ -35,7 +35,7 @@ img {
 }
 /* Стили для шапки (header) */
 
-.heroCont {
+.blackCont {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,
@@ -294,29 +294,8 @@ footer {
   background-color: #000;
   color: #fff;
   text-align: center;
-  padding: 20px;
 }
-.contact {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.contact h2 {
-  font-size: 16px;
-}
-.contact ul {
-  list-style: none;
-  text-align: left;
-  margin-right: 15px;
-}
-.contact ul a {
-  text-decoration: none;
-  color: #fff;
-}
-.footerCont {
-  display: flex;
-  font-size: 16px;
-}
+
 /* services page style start */
 .services {
   padding: 15px;
@@ -648,7 +627,47 @@ p.desc {
   padding-bottom: 20px;
 }
 /* myWorck slider end */
+footer a {
+  color: #fff;
+}
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  align-items: flex-start;
+}
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 25px;
+}
+.social a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.social li:not(:last-child) {
+  margin-right: 15px;
+}
+.social::before {
+  content: "Напишите мне в соц. сетях";
+  position: absolute;
+  top: 0;
+}
 
+.footerCont {
+  position: relative;
+  padding-top: 25px;
+}
+.footerCont:before {
+  content: "Контакты";
+  position: absolute;
+  top: 0;
+}
 @media screen and (max-width: 1000px) {
   .servicesItem::before,
   .servicesPrice:before,
@@ -663,6 +682,9 @@ p.desc {
   }
 }
 @media screen and (max-width: 820px) {
+  section.myWorck .myWorck__Items {
+    width: calc(33.33% - 10px);
+  }
   .map {
     width: 100%;
   }
@@ -717,6 +739,17 @@ p.desc {
   }
 }
 @media screen and (max-width: 600px) {
+  .footerCont,
+  .social {
+    width: 100%;
+    text-align: center;
+  }
+  .footerCont::before,
+  .social::before {
+    left: 0;
+    right: 0;
+  }
+
   .profileImg,
   .profileInfo {
     width: 100%;
